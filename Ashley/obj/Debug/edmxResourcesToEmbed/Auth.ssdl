@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Ashley.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblM_User">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_type" Type="nvarchar" MaxLength="50" />
+    <Property Name="username" Type="nvarchar" MaxLength="50" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" />
+    <Property Name="fullname" Type="nvarchar" MaxLength="50" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="country_code" Type="char" MaxLength="10" />
+    <Property Name="phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="gender" Type="nvarchar" MaxLength="50" />
+    <Property Name="date_registered" Type="date" />
+    <Property Name="date_modified" Type="date" />
+    <Property Name="isverified" Type="int" />
+    <Property Name="isactive" Type="int" />
+  </EntityType>
+  <EntityType Name="tblM_User_DeviceID">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="bigint" Nullable="false" />
+    <Property Name="unique_key" Type="nvarchar(max)" />
+    <Property Name="date_modified" Type="date" />
+  </EntityType>
+  <EntityType Name="tblT_Callback">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="received_message" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tblT_Chat">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="bigint" />
+    <Property Name="user_to" Type="bigint" />
+    <Property Name="message" Type="nvarchar(max)" />
+    <Property Name="date" Type="date" />
+  </EntityType>
+  <EntityType Name="tblT_Log">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="bigint" />
+    <Property Name="activity" Type="nvarchar" MaxLength="50" />
+    <Property Name="date" Type="date" />
+  </EntityType>
+  <EntityType Name="tblT_Payment">
+    <Key>
+      <PropertyRef Name="reference_number" />
+    </Key>
+    <Property Name="reference_number" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="user_id" Type="bigint" />
+    <Property Name="payment_type" Type="nvarchar" MaxLength="50" />
+    <Property Name="payment_status" Type="nvarchar" MaxLength="50" />
+    <Property Name="payment_method" Type="nvarchar" MaxLength="50" />
+    <Property Name="payment_gateway_return_datetime" Type="date" />
+    <Property Name="currency_code" Type="char" MaxLength="3" />
+    <Property Name="amount" Type="float" />
+    <Property Name="payment_details" Type="nvarchar" MaxLength="50" />
+    <Property Name="payment_result" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblT_User_Verification">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="bigint" />
+    <Property Name="verification_code" Type="char" MaxLength="6" />
+    <Property Name="date_registered" Type="date" />
+  </EntityType>
+  <EntityContainer Name="AshleyStoreContainer">
+    <EntitySet Name="tblM_User" EntityType="Self.tblM_User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblM_User_DeviceID" EntityType="Self.tblM_User_DeviceID" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblT_Callback" EntityType="Self.tblT_Callback" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblT_Chat" EntityType="Self.tblT_Chat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblT_Log" EntityType="Self.tblT_Log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblT_Payment" EntityType="Self.tblT_Payment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblT_User_Verification" EntityType="Self.tblT_User_Verification" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

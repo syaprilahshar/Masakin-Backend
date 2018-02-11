@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DB_MasakinModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblM_Menu">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="MenuID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MerchantID" Type="bigint" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Price" Type="int" Nullable="false" />
+          <Property Name="Rate" Type="float" />
+          <Property Name="isActive" Type="int" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="ImageURL" Type="nvarchar(max)" />
+          <Property Name="ThumbnailURL" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tblT_Catering">
+          <Key>
+            <PropertyRef Name="CateringID" />
+          </Key>
+          <Property Name="CateringID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LocalID" Type="bigint" Nullable="false" />
+          <Property Name="MerchantID" Type="bigint" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Price" Type="int" Nullable="false" />
+          <Property Name="Rate" Type="float" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Temporary" Type="int" />
+          <Property Name="Sold" Type="int" />
+          <Property Name="Day1MenuID" Type="bigint" />
+          <Property Name="Day2MenuID" Type="bigint" />
+          <Property Name="Day3MenuID" Type="bigint" />
+          <Property Name="Day4MenuID" Type="bigint" />
+          <Property Name="Day5MenuID" Type="bigint" />
+          <Property Name="DateFirst" Type="datetime" />
+          <Property Name="DateLast" Type="datetime" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="DateModified" Type="datetime" />
+          <Property Name="isActive" Type="int" Nullable="false" />
+          <Property Name="isRepeat" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblT_Payment">
+          <Key>
+            <PropertyRef Name="Ref" />
+          </Key>
+          <Property Name="Ref" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="TransactionID" Type="nvarchar" MaxLength="50" />
+          <Property Name="URL" Type="nvarchar(max)" />
+          <Property Name="Trace" Type="nvarchar(max)" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="StatusMessage" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tblT_Transaction">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserID" Type="bigint" />
+          <Property Name="MerchantID" Type="bigint" />
+          <Property Name="CateringID" Type="bigint" />
+          <Property Name="DateFirst" Type="datetime" />
+          <Property Name="SubTotal" Type="float" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="ShippingCost" Type="float" />
+          <Property Name="Total" Type="float" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="isPaid" Type="int" />
+          <Property Name="DateExpired" Type="datetime" />
+          <Property Name="StatusMessage" Type="nvarchar(max)" />
+          <Property Name="Deliveree" Type="nvarchar(max)" />
+          <Property Name="Phone" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="City" Type="nvarchar(max)" />
+          <Property Name="HomeNumber" Type="nvarchar(max)" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="Voucher" Type="nvarchar(max)" />
+          <Property Name="VoucherAmount" Type="int" />
+        </EntityType>
+        <EntityType Name="tblT_Transaction_Detail">
+          <Key>
+            <PropertyRef Name="DetailID" />
+          </Key>
+          <Property Name="DetailID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TransactionID" Type="nvarchar" MaxLength="50" />
+          <Property Name="CateringID" Type="bigint" />
+          <Property Name="MenuID" Type="bigint" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="isActive" Type="int" />
+          <Property Name="DateCreated" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="DB_MasakinModelStoreContainer">
+          <EntitySet Name="tblM_Menu" EntityType="Self.tblM_Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblT_Catering" EntityType="Self.tblT_Catering" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblT_Payment" EntityType="Self.tblT_Payment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblT_Transaction" EntityType="Self.tblT_Transaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblT_Transaction_Detail" EntityType="Self.tblT_Transaction_Detail" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_MasakinModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DB_MasakinEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblM_Menu" EntityType="DB_MasakinModel.tblM_Menu" />
+          <EntitySet Name="tblT_Catering" EntityType="DB_MasakinModel.tblT_Catering" />
+          <EntitySet Name="tblT_Transaction" EntityType="DB_MasakinModel.tblT_Transaction" />
+          <EntitySet Name="tblT_Transaction_Detail" EntityType="DB_MasakinModel.tblT_Transaction_Detail" />
+          <EntitySet Name="tblT_Payment" EntityType="DB_MasakinModel.tblT_Payment" />
+        </EntityContainer>
+        <EntityType Name="tblM_Menu">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="MenuID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MerchantID" Type="Int64" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <Property Name="Rate" Type="Double" />
+          <Property Name="isActive" Type="Int32" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="ImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ThumbnailURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblT_Catering">
+          <Key>
+            <PropertyRef Name="CateringID" />
+          </Key>
+          <Property Name="CateringID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LocalID" Type="Int64" Nullable="false" />
+          <Property Name="MerchantID" Type="Int64" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <Property Name="Rate" Type="Double" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Temporary" Type="Int32" />
+          <Property Name="Sold" Type="Int32" />
+          <Property Name="Day1MenuID" Type="Int64" />
+          <Property Name="Day2MenuID" Type="Int64" />
+          <Property Name="Day3MenuID" Type="Int64" />
+          <Property Name="Day4MenuID" Type="Int64" />
+          <Property Name="Day5MenuID" Type="Int64" />
+          <Property Name="DateFirst" Type="DateTime" Precision="3" />
+          <Property Name="DateLast" Type="DateTime" Precision="3" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="DateModified" Type="DateTime" Precision="3" />
+          <Property Name="isActive" Type="Int32" Nullable="false" />
+          <Property Name="isRepeat" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblT_Transaction">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserID" Type="Int64" />
+          <Property Name="MerchantID" Type="Int64" />
+          <Property Name="CateringID" Type="Int64" />
+          <Property Name="DateFirst" Type="DateTime" Precision="3" />
+          <Property Name="SubTotal" Type="Double" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="ShippingCost" Type="Double" />
+          <Property Name="Total" Type="Double" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="isPaid" Type="Int32" />
+          <Property Name="DateExpired" Type="DateTime" Precision="3" />
+          <Property Name="StatusMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Deliveree" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HomeNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Voucher" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VoucherAmount" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblT_Transaction_Detail">
+          <Key>
+            <PropertyRef Name="DetailID" />
+          </Key>
+          <Property Name="DetailID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TransactionID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CateringID" Type="Int64" />
+          <Property Name="MenuID" Type="Int64" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="isActive" Type="Int32" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblT_Payment">
+          <Key>
+            <PropertyRef Name="Ref" />
+          </Key>
+          <Property Name="Ref" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TransactionID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="URL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Trace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StatusMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_MasakinModelStoreContainer" CdmEntityContainer="DB_MasakinEntities">
+          <EntitySetMapping Name="tblM_Menu">
+            <EntityTypeMapping TypeName="DB_MasakinModel.tblM_Menu">
+              <MappingFragment StoreEntitySet="tblM_Menu">
+                <ScalarProperty Name="ThumbnailURL" ColumnName="ThumbnailURL" />
+                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblT_Catering">
+            <EntityTypeMapping TypeName="DB_MasakinModel.tblT_Catering">
+              <MappingFragment StoreEntitySet="tblT_Catering">
+                <ScalarProperty Name="isRepeat" ColumnName="isRepeat" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="DateLast" ColumnName="DateLast" />
+                <ScalarProperty Name="DateFirst" ColumnName="DateFirst" />
+                <ScalarProperty Name="Day5MenuID" ColumnName="Day5MenuID" />
+                <ScalarProperty Name="Day4MenuID" ColumnName="Day4MenuID" />
+                <ScalarProperty Name="Day3MenuID" ColumnName="Day3MenuID" />
+                <ScalarProperty Name="Day2MenuID" ColumnName="Day2MenuID" />
+                <ScalarProperty Name="Day1MenuID" ColumnName="Day1MenuID" />
+                <ScalarProperty Name="Sold" ColumnName="Sold" />
+                <ScalarProperty Name="Temporary" ColumnName="Temporary" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+                <ScalarProperty Name="LocalID" ColumnName="LocalID" />
+                <ScalarProperty Name="CateringID" ColumnName="CateringID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblT_Transaction">
+            <EntityTypeMapping TypeName="DB_MasakinModel.tblT_Transaction">
+              <MappingFragment StoreEntitySet="tblT_Transaction">
+                <ScalarProperty Name="VoucherAmount" ColumnName="VoucherAmount" />
+                <ScalarProperty Name="Voucher" ColumnName="Voucher" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="HomeNumber" ColumnName="HomeNumber" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Deliveree" ColumnName="Deliveree" />
+                <ScalarProperty Name="StatusMessage" ColumnName="StatusMessage" />
+                <ScalarProperty Name="DateExpired" ColumnName="DateExpired" />
+                <ScalarProperty Name="isPaid" ColumnName="isPaid" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="ShippingCost" ColumnName="ShippingCost" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+                <ScalarProperty Name="DateFirst" ColumnName="DateFirst" />
+                <ScalarProperty Name="CateringID" ColumnName="CateringID" />
+                <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblT_Transaction_Detail">
+            <EntityTypeMapping TypeName="DB_MasakinModel.tblT_Transaction_Detail">
+              <MappingFragment StoreEntitySet="tblT_Transaction_Detail">
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+                <ScalarProperty Name="CateringID" ColumnName="CateringID" />
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+                <ScalarProperty Name="DetailID" ColumnName="DetailID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblT_Payment">
+            <EntityTypeMapping TypeName="DB_MasakinModel.tblT_Payment">
+              <MappingFragment StoreEntitySet="tblT_Payment">
+                <ScalarProperty Name="StatusMessage" ColumnName="StatusMessage" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Trace" ColumnName="Trace" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+                <ScalarProperty Name="Ref" ColumnName="Ref" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

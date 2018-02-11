@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AshleyStoreContainer" CdmEntityContainer="AshleyEntities">
+    <EntitySetMapping Name="tblM_User">
+      <EntityTypeMapping TypeName="Ashley.tblM_User">
+        <MappingFragment StoreEntitySet="tblM_User">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="user_type" ColumnName="user_type" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="fullname" ColumnName="fullname" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="country_code" ColumnName="country_code" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="date_registered" ColumnName="date_registered" />
+          <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+          <ScalarProperty Name="isverified" ColumnName="isverified" />
+          <ScalarProperty Name="isactive" ColumnName="isactive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblM_User_DeviceID">
+      <EntityTypeMapping TypeName="Ashley.tblM_User_DeviceID">
+        <MappingFragment StoreEntitySet="tblM_User_DeviceID">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="unique_key" ColumnName="unique_key" />
+          <ScalarProperty Name="date_modified" ColumnName="date_modified" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblT_Callback">
+      <EntityTypeMapping TypeName="Ashley.tblT_Callback">
+        <MappingFragment StoreEntitySet="tblT_Callback">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="received_message" ColumnName="received_message" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblT_Chat">
+      <EntityTypeMapping TypeName="Ashley.tblT_Chat">
+        <MappingFragment StoreEntitySet="tblT_Chat">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="user_to" ColumnName="user_to" />
+          <ScalarProperty Name="message" ColumnName="message" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblT_Log">
+      <EntityTypeMapping TypeName="Ashley.tblT_Log">
+        <MappingFragment StoreEntitySet="tblT_Log">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="activity" ColumnName="activity" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblT_User_Verification">
+      <EntityTypeMapping TypeName="Ashley.tblT_User_Verification">
+        <MappingFragment StoreEntitySet="tblT_User_Verification">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="verification_code" ColumnName="verification_code" />
+          <ScalarProperty Name="date_registered" ColumnName="date_registered" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblT_Payment">
+      <EntityTypeMapping TypeName="Ashley.tblT_Payment">
+        <MappingFragment StoreEntitySet="tblT_Payment">
+          <ScalarProperty Name="payment_result" ColumnName="payment_result" />
+          <ScalarProperty Name="payment_details" ColumnName="payment_details" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="currency_code" ColumnName="currency_code" />
+          <ScalarProperty Name="payment_gateway_return_datetime" ColumnName="payment_gateway_return_datetime" />
+          <ScalarProperty Name="payment_method" ColumnName="payment_method" />
+          <ScalarProperty Name="payment_status" ColumnName="payment_status" />
+          <ScalarProperty Name="payment_type" ColumnName="payment_type" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="reference_number" ColumnName="reference_number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

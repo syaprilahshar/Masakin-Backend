@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_MasakinModelStoreContainer" CdmEntityContainer="DB_MasakinEntities">
+    <EntitySetMapping Name="tblM_Menu">
+      <EntityTypeMapping TypeName="DB_MasakinModel.tblM_Menu">
+        <MappingFragment StoreEntitySet="tblM_Menu">
+          <ScalarProperty Name="ThumbnailURL" ColumnName="ThumbnailURL" />
+          <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+          <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblT_Catering">
+      <EntityTypeMapping TypeName="DB_MasakinModel.tblT_Catering">
+        <MappingFragment StoreEntitySet="tblT_Catering">
+          <ScalarProperty Name="isRepeat" ColumnName="isRepeat" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="DateLast" ColumnName="DateLast" />
+          <ScalarProperty Name="DateFirst" ColumnName="DateFirst" />
+          <ScalarProperty Name="Day5MenuID" ColumnName="Day5MenuID" />
+          <ScalarProperty Name="Day4MenuID" ColumnName="Day4MenuID" />
+          <ScalarProperty Name="Day3MenuID" ColumnName="Day3MenuID" />
+          <ScalarProperty Name="Day2MenuID" ColumnName="Day2MenuID" />
+          <ScalarProperty Name="Day1MenuID" ColumnName="Day1MenuID" />
+          <ScalarProperty Name="Sold" ColumnName="Sold" />
+          <ScalarProperty Name="Temporary" ColumnName="Temporary" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+          <ScalarProperty Name="LocalID" ColumnName="LocalID" />
+          <ScalarProperty Name="CateringID" ColumnName="CateringID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblT_Transaction">
+      <EntityTypeMapping TypeName="DB_MasakinModel.tblT_Transaction">
+        <MappingFragment StoreEntitySet="tblT_Transaction">
+          <ScalarProperty Name="VoucherAmount" ColumnName="VoucherAmount" />
+          <ScalarProperty Name="Voucher" ColumnName="Voucher" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="HomeNumber" ColumnName="HomeNumber" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Deliveree" ColumnName="Deliveree" />
+          <ScalarProperty Name="StatusMessage" ColumnName="StatusMessage" />
+          <ScalarProperty Name="DateExpired" ColumnName="DateExpired" />
+          <ScalarProperty Name="isPaid" ColumnName="isPaid" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="ShippingCost" ColumnName="ShippingCost" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+          <ScalarProperty Name="DateFirst" ColumnName="DateFirst" />
+          <ScalarProperty Name="CateringID" ColumnName="CateringID" />
+          <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblT_Transaction_Detail">
+      <EntityTypeMapping TypeName="DB_MasakinModel.tblT_Transaction_Detail">
+        <MappingFragment StoreEntitySet="tblT_Transaction_Detail">
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+          <ScalarProperty Name="CateringID" ColumnName="CateringID" />
+          <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+          <ScalarProperty Name="DetailID" ColumnName="DetailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblT_Payment">
+      <EntityTypeMapping TypeName="DB_MasakinModel.tblT_Payment">
+        <MappingFragment StoreEntitySet="tblT_Payment">
+          <ScalarProperty Name="StatusMessage" ColumnName="StatusMessage" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Trace" ColumnName="Trace" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+          <ScalarProperty Name="Ref" ColumnName="Ref" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

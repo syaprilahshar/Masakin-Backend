@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_MasakinModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblM_Menu">
+    <Key>
+      <PropertyRef Name="MenuID" />
+    </Key>
+    <Property Name="MenuID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MerchantID" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Price" Type="int" Nullable="false" />
+    <Property Name="Rate" Type="float" />
+    <Property Name="isActive" Type="int" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="ImageURL" Type="nvarchar(max)" />
+    <Property Name="ThumbnailURL" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tblT_Catering">
+    <Key>
+      <PropertyRef Name="CateringID" />
+    </Key>
+    <Property Name="CateringID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LocalID" Type="bigint" Nullable="false" />
+    <Property Name="MerchantID" Type="bigint" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Price" Type="int" Nullable="false" />
+    <Property Name="Rate" Type="float" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Temporary" Type="int" />
+    <Property Name="Sold" Type="int" />
+    <Property Name="Day1MenuID" Type="bigint" />
+    <Property Name="Day2MenuID" Type="bigint" />
+    <Property Name="Day3MenuID" Type="bigint" />
+    <Property Name="Day4MenuID" Type="bigint" />
+    <Property Name="Day5MenuID" Type="bigint" />
+    <Property Name="DateFirst" Type="datetime" />
+    <Property Name="DateLast" Type="datetime" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="DateModified" Type="datetime" />
+    <Property Name="isActive" Type="int" Nullable="false" />
+    <Property Name="isRepeat" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblT_Payment">
+    <Key>
+      <PropertyRef Name="Ref" />
+    </Key>
+    <Property Name="Ref" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="TransactionID" Type="nvarchar" MaxLength="50" />
+    <Property Name="URL" Type="nvarchar(max)" />
+    <Property Name="Trace" Type="nvarchar(max)" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="StatusMessage" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tblT_Transaction">
+    <Key>
+      <PropertyRef Name="TransactionID" />
+    </Key>
+    <Property Name="TransactionID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserID" Type="bigint" />
+    <Property Name="MerchantID" Type="bigint" />
+    <Property Name="CateringID" Type="bigint" />
+    <Property Name="DateFirst" Type="datetime" />
+    <Property Name="SubTotal" Type="float" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="ShippingCost" Type="float" />
+    <Property Name="Total" Type="float" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="isPaid" Type="int" />
+    <Property Name="DateExpired" Type="datetime" />
+    <Property Name="StatusMessage" Type="nvarchar(max)" />
+    <Property Name="Deliveree" Type="nvarchar(max)" />
+    <Property Name="Phone" Type="nvarchar(max)" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="City" Type="nvarchar(max)" />
+    <Property Name="HomeNumber" Type="nvarchar(max)" />
+    <Property Name="Notes" Type="nvarchar(max)" />
+    <Property Name="Voucher" Type="nvarchar(max)" />
+    <Property Name="VoucherAmount" Type="int" />
+  </EntityType>
+  <EntityType Name="tblT_Transaction_Detail">
+    <Key>
+      <PropertyRef Name="DetailID" />
+    </Key>
+    <Property Name="DetailID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TransactionID" Type="nvarchar" MaxLength="50" />
+    <Property Name="CateringID" Type="bigint" />
+    <Property Name="MenuID" Type="bigint" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="isActive" Type="int" />
+    <Property Name="DateCreated" Type="datetime" />
+  </EntityType>
+  <EntityContainer Name="DB_MasakinModelStoreContainer">
+    <EntitySet Name="tblM_Menu" EntityType="Self.tblM_Menu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblT_Catering" EntityType="Self.tblT_Catering" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblT_Payment" EntityType="Self.tblT_Payment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblT_Transaction" EntityType="Self.tblT_Transaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblT_Transaction_Detail" EntityType="Self.tblT_Transaction_Detail" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_MasterModelStoreContainer" CdmEntityContainer="DB_MasterEntities">
+    <EntitySetMapping Name="tblM_Admin">
+      <EntityTypeMapping TypeName="DB_MasterModel.tblM_Admin">
+        <MappingFragment StoreEntitySet="tblM_Admin">
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="DateJoin" ColumnName="DateJoin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblM_Balance">
+      <EntityTypeMapping TypeName="DB_MasterModel.tblM_Balance">
+        <MappingFragment StoreEntitySet="tblM_Balance">
+          <ScalarProperty Name="BalanceID" ColumnName="BalanceID" />
+          <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="LastTopup" ColumnName="LastTopup" />
+          <ScalarProperty Name="LastUsed" ColumnName="LastUsed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblM_Banner">
+      <EntityTypeMapping TypeName="DB_MasterModel.tblM_Banner">
+        <MappingFragment StoreEntitySet="tblM_Banner">
+          <ScalarProperty Name="BannerID" ColumnName="BannerID" />
+          <ScalarProperty Name="Header" ColumnName="Header" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="ContentType" ColumnName="ContentType" />
+          <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblM_Kabupaten">
+      <EntityTypeMapping TypeName="DB_MasterModel.tblM_Kabupaten">
+        <MappingFragment StoreEntitySet="tblM_Kabupaten">
+          <ScalarProperty Name="KabupatenID" ColumnName="KabupatenID" />
+          <ScalarProperty Name="ProvinsiID" ColumnName="ProvinsiID" />
+          <ScalarProperty Name="Nama" ColumnName="Nama" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblM_Kecamatan">
+      <EntityTypeMapping TypeName="DB_MasterModel.tblM_Kecamatan">
+        <MappingFragment StoreEntitySet="tblM_Kecamatan">
+          <ScalarProperty Name="KecamatanID" ColumnName="KecamatanID" />
+          <ScalarProperty Name="KabupatenID" ColumnName="KabupatenID" />
+          <ScalarProperty Name="Nama" ColumnName="Nama" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblM_Provinsi">
+      <EntityTypeMapping TypeName="DB_MasterModel.tblM_Provinsi">
+        <MappingFragment StoreEntitySet="tblM_Provinsi">
+          <ScalarProperty Name="ProvinsiID" ColumnName="ProvinsiID" />
+          <ScalarProperty Name="Nama" ColumnName="Nama" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblT_Address">
+      <EntityTypeMapping TypeName="DB_MasterModel.tblT_Address">
+        <MappingFragment StoreEntitySet="tblT_Address">
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="AddressHeader" ColumnName="AddressHeader" />
+          <ScalarProperty Name="AddressName" ColumnName="AddressName" />
+          <ScalarProperty Name="Addressee" ColumnName="Addressee" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="ProvinsiID" ColumnName="ProvinsiID" />
+          <ScalarProperty Name="KabupatenID" ColumnName="KabupatenID" />
+          <ScalarProperty Name="ZIPCode" ColumnName="ZIPCode" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblT_Log_Admin">
+      <EntityTypeMapping TypeName="DB_MasterModel.tblT_Log_Admin">
+        <MappingFragment StoreEntitySet="tblT_Log_Admin">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblT_User_Token">
+      <EntityTypeMapping TypeName="DB_MasterModel.tblT_User_Token">
+        <MappingFragment StoreEntitySet="tblT_User_Token">
+          <ScalarProperty Name="TokenID" ColumnName="TokenID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Token" ColumnName="Token" />
+          <ScalarProperty Name="DateExpired" ColumnName="DateExpired" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblM_User_DeviceID">
+      <EntityTypeMapping TypeName="DB_MasterModel.tblM_User_DeviceID">
+        <MappingFragment StoreEntitySet="tblM_User_DeviceID">
+          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+          <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblM_Merchant_DeviceID">
+      <EntityTypeMapping TypeName="DB_MasterModel.tblM_Merchant_DeviceID">
+        <MappingFragment StoreEntitySet="tblM_Merchant_DeviceID">
+          <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+          <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+          <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblT_Merchant_Delivery_Location">
+      <EntityTypeMapping TypeName="DB_MasterModel.tblT_Merchant_Delivery_Location">
+        <MappingFragment StoreEntitySet="tblT_Merchant_Delivery_Location">
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="KabupatenID" ColumnName="KabupatenID" />
+          <ScalarProperty Name="ProvinsiID" ColumnName="ProvinsiID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblM_User">
+      <EntityTypeMapping TypeName="DB_MasterModel.tblM_User">
+        <MappingFragment StoreEntitySet="tblM_User">
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="isMerchant" ColumnName="isMerchant" />
+          <ScalarProperty Name="ThumbnailURL" ColumnName="ThumbnailURL" />
+          <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+          <ScalarProperty Name="FBID" ColumnName="FBID" />
+          <ScalarProperty Name="SMSCount" ColumnName="SMSCount" />
+          <ScalarProperty Name="isBanned" ColumnName="isBanned" />
+          <ScalarProperty Name="DateVerified" ColumnName="DateVerified" />
+          <ScalarProperty Name="isVerified" ColumnName="isVerified" />
+          <ScalarProperty Name="DateActivated" ColumnName="DateActivated" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="DateJoin" ColumnName="DateJoin" />
+          <ScalarProperty Name="DoB" ColumnName="DoB" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,528 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DB_MasterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblM_Admin">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fullname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Role" Type="nvarchar" MaxLength="50" />
+          <Property Name="isActive" Type="int" />
+          <Property Name="DateJoin" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblM_Balance">
+          <Key>
+            <PropertyRef Name="BalanceID" />
+          </Key>
+          <Property Name="BalanceID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MerchantID" Type="bigint" Nullable="false" />
+          <Property Name="Balance" Type="float" Nullable="false" />
+          <Property Name="LastTopup" Type="datetime" Nullable="false" />
+          <Property Name="LastUsed" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblM_Banner">
+          <Key>
+            <PropertyRef Name="BannerID" />
+          </Key>
+          <Property Name="BannerID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Header" Type="nvarchar(max)" />
+          <Property Name="Image" Type="nvarchar(max)" />
+          <Property Name="ContentType" Type="nvarchar(max)" />
+          <Property Name="ImageURL" Type="nvarchar(max)" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="isActive" Type="int" />
+          <Property Name="CreatedBy" Type="bigint" />
+        </EntityType>
+        <EntityType Name="tblM_Kabupaten">
+          <Key>
+            <PropertyRef Name="KabupatenID" />
+          </Key>
+          <Property Name="KabupatenID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProvinsiID" Type="bigint" Nullable="false" />
+          <Property Name="Nama" Type="nvarchar" MaxLength="50" />
+          <Property Name="isActive" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblM_Kecamatan">
+          <Key>
+            <PropertyRef Name="KecamatanID" />
+          </Key>
+          <Property Name="KecamatanID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KabupatenID" Type="bigint" />
+          <Property Name="Nama" Type="nvarchar" MaxLength="50" />
+          <Property Name="isActive" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblM_Merchant_DeviceID">
+          <Key>
+            <PropertyRef Name="MerchantID" />
+          </Key>
+          <Property Name="MerchantID" Type="bigint" Nullable="false" />
+          <Property Name="DeviceID" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DateModified" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblM_Provinsi">
+          <Key>
+            <PropertyRef Name="ProvinsiID" />
+          </Key>
+          <Property Name="ProvinsiID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nama" Type="nvarchar" MaxLength="50" />
+          <Property Name="isActive" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblM_User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Password" Type="nvarchar(max)" />
+          <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Location" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+          <Property Name="DoB" Type="nvarchar(max)" />
+          <Property Name="DateJoin" Type="datetime" />
+          <Property Name="isActive" Type="int" />
+          <Property Name="DateActivated" Type="datetime" />
+          <Property Name="isVerified" Type="int" />
+          <Property Name="DateVerified" Type="datetime" />
+          <Property Name="isBanned" Type="int" />
+          <Property Name="SMSCount" Type="int" />
+          <Property Name="FBID" Type="nvarchar(max)" />
+          <Property Name="ImageURL" Type="nvarchar(max)" />
+          <Property Name="ThumbnailURL" Type="nvarchar(max)" />
+          <Property Name="isMerchant" Type="int" />
+          <Property Name="Balance" Type="float" />
+        </EntityType>
+        <EntityType Name="tblM_User_DeviceID">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="bigint" Nullable="false" />
+          <Property Name="DeviceID" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DateModified" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblT_Address">
+          <Key>
+            <PropertyRef Name="AddressID" />
+          </Key>
+          <Property Name="AddressID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="bigint" Nullable="false" />
+          <Property Name="AddressHeader" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="AddressName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Addressee" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ProvinsiID" Type="bigint" Nullable="false" />
+          <Property Name="KabupatenID" Type="bigint" Nullable="false" />
+          <Property Name="ZIPCode" Type="int" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="isActive" Type="int" />
+        </EntityType>
+        <EntityType Name="tblT_Log_Admin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdminID" Type="bigint" />
+          <Property Name="Action" Type="nvarchar(max)" />
+          <Property Name="Message" Type="nvarchar(max)" />
+          <Property Name="DateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblT_Merchant_Delivery_Location">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="bigint" Nullable="false" />
+          <Property Name="ProvinsiID" Type="bigint" Nullable="false" />
+          <Property Name="KabupatenID" Type="bigint" Nullable="false" />
+          <Property Name="isActive" Type="int" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblT_User_Token">
+          <Key>
+            <PropertyRef Name="TokenID" />
+          </Key>
+          <Property Name="TokenID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="bigint" Nullable="false" />
+          <Property Name="Token" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="DateExpired" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="DB_MasterModelStoreContainer">
+          <EntitySet Name="tblM_Admin" EntityType="Self.tblM_Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblM_Balance" EntityType="Self.tblM_Balance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblM_Banner" EntityType="Self.tblM_Banner" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblM_Kabupaten" EntityType="Self.tblM_Kabupaten" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblM_Kecamatan" EntityType="Self.tblM_Kecamatan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblM_Merchant_DeviceID" EntityType="Self.tblM_Merchant_DeviceID" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblM_Provinsi" EntityType="Self.tblM_Provinsi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblM_User" EntityType="Self.tblM_User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblM_User_DeviceID" EntityType="Self.tblM_User_DeviceID" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblT_Address" EntityType="Self.tblT_Address" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblT_Log_Admin" EntityType="Self.tblT_Log_Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblT_Merchant_Delivery_Location" EntityType="Self.tblT_Merchant_Delivery_Location" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblT_User_Token" EntityType="Self.tblT_User_Token" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_MasterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblM_Admin">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fullname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="isActive" Type="Int32" />
+          <Property Name="DateJoin" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblM_Balance">
+          <Key>
+            <PropertyRef Name="BalanceID" />
+          </Key>
+          <Property Name="BalanceID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MerchantID" Type="Int64" Nullable="false" />
+          <Property Name="Balance" Type="Double" Nullable="false" />
+          <Property Name="LastTopup" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUsed" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblM_Banner">
+          <Key>
+            <PropertyRef Name="BannerID" />
+          </Key>
+          <Property Name="BannerID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Header" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ContentType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="isActive" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int64" />
+        </EntityType>
+        <EntityType Name="tblM_Kabupaten">
+          <Key>
+            <PropertyRef Name="KabupatenID" />
+          </Key>
+          <Property Name="KabupatenID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProvinsiID" Type="Int64" Nullable="false" />
+          <Property Name="Nama" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="isActive" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblM_Kecamatan">
+          <Key>
+            <PropertyRef Name="KecamatanID" />
+          </Key>
+          <Property Name="KecamatanID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KabupatenID" Type="Int64" />
+          <Property Name="Nama" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="isActive" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblM_Provinsi">
+          <Key>
+            <PropertyRef Name="ProvinsiID" />
+          </Key>
+          <Property Name="ProvinsiID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nama" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="isActive" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblT_Address">
+          <Key>
+            <PropertyRef Name="AddressID" />
+          </Key>
+          <Property Name="AddressID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int64" Nullable="false" />
+          <Property Name="AddressHeader" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AddressName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Addressee" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProvinsiID" Type="Int64" Nullable="false" />
+          <Property Name="KabupatenID" Type="Int64" Nullable="false" />
+          <Property Name="ZIPCode" Type="Int32" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="isActive" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblT_Log_Admin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdminID" Type="Int64" />
+          <Property Name="Action" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblT_User_Token">
+          <Key>
+            <PropertyRef Name="TokenID" />
+          </Key>
+          <Property Name="TokenID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int64" Nullable="false" />
+          <Property Name="Token" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateExpired" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="DB_MasterEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblM_Admin" EntityType="Self.tblM_Admin" />
+          <EntitySet Name="tblM_Balance" EntityType="Self.tblM_Balance" />
+          <EntitySet Name="tblM_Banner" EntityType="Self.tblM_Banner" />
+          <EntitySet Name="tblM_Kabupaten" EntityType="Self.tblM_Kabupaten" />
+          <EntitySet Name="tblM_Kecamatan" EntityType="Self.tblM_Kecamatan" />
+          <EntitySet Name="tblM_Provinsi" EntityType="Self.tblM_Provinsi" />
+          <EntitySet Name="tblT_Address" EntityType="Self.tblT_Address" />
+          <EntitySet Name="tblT_Log_Admin" EntityType="Self.tblT_Log_Admin" />
+          <EntitySet Name="tblT_User_Token" EntityType="Self.tblT_User_Token" />
+          <EntitySet Name="tblM_User_DeviceID" EntityType="DB_MasterModel.tblM_User_DeviceID" />
+          <EntitySet Name="tblM_Merchant_DeviceID" EntityType="DB_MasterModel.tblM_Merchant_DeviceID" />
+          <EntitySet Name="tblT_Merchant_Delivery_Location" EntityType="DB_MasterModel.tblT_Merchant_Delivery_Location" />
+          <EntitySet Name="tblM_User" EntityType="DB_MasterModel.tblM_User" />
+        </EntityContainer>
+        <EntityType Name="tblM_User_DeviceID">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int64" Nullable="false" />
+          <Property Name="DeviceID" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateModified" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblM_Merchant_DeviceID">
+          <Key>
+            <PropertyRef Name="MerchantID" />
+          </Key>
+          <Property Name="MerchantID" Type="Int64" Nullable="false" />
+          <Property Name="DeviceID" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateModified" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblT_Merchant_Delivery_Location">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int64" Nullable="false" />
+          <Property Name="ProvinsiID" Type="Int64" Nullable="false" />
+          <Property Name="KabupatenID" Type="Int64" Nullable="false" />
+          <Property Name="isActive" Type="Int32" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblM_User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DoB" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateJoin" Type="DateTime" Precision="3" />
+          <Property Name="isActive" Type="Int32" />
+          <Property Name="DateActivated" Type="DateTime" Precision="3" />
+          <Property Name="isVerified" Type="Int32" />
+          <Property Name="DateVerified" Type="DateTime" Precision="3" />
+          <Property Name="isBanned" Type="Int32" />
+          <Property Name="SMSCount" Type="Int32" />
+          <Property Name="FBID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ThumbnailURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="isMerchant" Type="Int32" />
+          <Property Name="Balance" Type="Double" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_MasterModelStoreContainer" CdmEntityContainer="DB_MasterEntities">
+          <EntitySetMapping Name="tblM_Admin">
+            <EntityTypeMapping TypeName="DB_MasterModel.tblM_Admin">
+              <MappingFragment StoreEntitySet="tblM_Admin">
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="DateJoin" ColumnName="DateJoin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblM_Balance">
+            <EntityTypeMapping TypeName="DB_MasterModel.tblM_Balance">
+              <MappingFragment StoreEntitySet="tblM_Balance">
+                <ScalarProperty Name="BalanceID" ColumnName="BalanceID" />
+                <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="LastTopup" ColumnName="LastTopup" />
+                <ScalarProperty Name="LastUsed" ColumnName="LastUsed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblM_Banner">
+            <EntityTypeMapping TypeName="DB_MasterModel.tblM_Banner">
+              <MappingFragment StoreEntitySet="tblM_Banner">
+                <ScalarProperty Name="BannerID" ColumnName="BannerID" />
+                <ScalarProperty Name="Header" ColumnName="Header" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="ContentType" ColumnName="ContentType" />
+                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblM_Kabupaten">
+            <EntityTypeMapping TypeName="DB_MasterModel.tblM_Kabupaten">
+              <MappingFragment StoreEntitySet="tblM_Kabupaten">
+                <ScalarProperty Name="KabupatenID" ColumnName="KabupatenID" />
+                <ScalarProperty Name="ProvinsiID" ColumnName="ProvinsiID" />
+                <ScalarProperty Name="Nama" ColumnName="Nama" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblM_Kecamatan">
+            <EntityTypeMapping TypeName="DB_MasterModel.tblM_Kecamatan">
+              <MappingFragment StoreEntitySet="tblM_Kecamatan">
+                <ScalarProperty Name="KecamatanID" ColumnName="KecamatanID" />
+                <ScalarProperty Name="KabupatenID" ColumnName="KabupatenID" />
+                <ScalarProperty Name="Nama" ColumnName="Nama" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblM_Provinsi">
+            <EntityTypeMapping TypeName="DB_MasterModel.tblM_Provinsi">
+              <MappingFragment StoreEntitySet="tblM_Provinsi">
+                <ScalarProperty Name="ProvinsiID" ColumnName="ProvinsiID" />
+                <ScalarProperty Name="Nama" ColumnName="Nama" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblT_Address">
+            <EntityTypeMapping TypeName="DB_MasterModel.tblT_Address">
+              <MappingFragment StoreEntitySet="tblT_Address">
+                <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="AddressHeader" ColumnName="AddressHeader" />
+                <ScalarProperty Name="AddressName" ColumnName="AddressName" />
+                <ScalarProperty Name="Addressee" ColumnName="Addressee" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="ProvinsiID" ColumnName="ProvinsiID" />
+                <ScalarProperty Name="KabupatenID" ColumnName="KabupatenID" />
+                <ScalarProperty Name="ZIPCode" ColumnName="ZIPCode" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblT_Log_Admin">
+            <EntityTypeMapping TypeName="DB_MasterModel.tblT_Log_Admin">
+              <MappingFragment StoreEntitySet="tblT_Log_Admin">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblT_User_Token">
+            <EntityTypeMapping TypeName="DB_MasterModel.tblT_User_Token">
+              <MappingFragment StoreEntitySet="tblT_User_Token">
+                <ScalarProperty Name="TokenID" ColumnName="TokenID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="DateExpired" ColumnName="DateExpired" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblM_User_DeviceID">
+            <EntityTypeMapping TypeName="DB_MasterModel.tblM_User_DeviceID">
+              <MappingFragment StoreEntitySet="tblM_User_DeviceID">
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblM_Merchant_DeviceID">
+            <EntityTypeMapping TypeName="DB_MasterModel.tblM_Merchant_DeviceID">
+              <MappingFragment StoreEntitySet="tblM_Merchant_DeviceID">
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="DeviceID" ColumnName="DeviceID" />
+                <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblT_Merchant_Delivery_Location">
+            <EntityTypeMapping TypeName="DB_MasterModel.tblT_Merchant_Delivery_Location">
+              <MappingFragment StoreEntitySet="tblT_Merchant_Delivery_Location">
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="KabupatenID" ColumnName="KabupatenID" />
+                <ScalarProperty Name="ProvinsiID" ColumnName="ProvinsiID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblM_User">
+            <EntityTypeMapping TypeName="DB_MasterModel.tblM_User">
+              <MappingFragment StoreEntitySet="tblM_User">
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="isMerchant" ColumnName="isMerchant" />
+                <ScalarProperty Name="ThumbnailURL" ColumnName="ThumbnailURL" />
+                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+                <ScalarProperty Name="FBID" ColumnName="FBID" />
+                <ScalarProperty Name="SMSCount" ColumnName="SMSCount" />
+                <ScalarProperty Name="isBanned" ColumnName="isBanned" />
+                <ScalarProperty Name="DateVerified" ColumnName="DateVerified" />
+                <ScalarProperty Name="isVerified" ColumnName="isVerified" />
+                <ScalarProperty Name="DateActivated" ColumnName="DateActivated" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="DateJoin" ColumnName="DateJoin" />
+                <ScalarProperty Name="DoB" ColumnName="DoB" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_MasterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblM_Admin">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Name="AdminID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fullname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="isActive" Type="Int32" />
+    <Property Name="DateJoin" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblM_Balance">
+    <Key>
+      <PropertyRef Name="BalanceID" />
+    </Key>
+    <Property Name="BalanceID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MerchantID" Type="Int64" Nullable="false" />
+    <Property Name="Balance" Type="Double" Nullable="false" />
+    <Property Name="LastTopup" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastUsed" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblM_Banner">
+    <Key>
+      <PropertyRef Name="BannerID" />
+    </Key>
+    <Property Name="BannerID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Header" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ContentType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="isActive" Type="Int32" />
+    <Property Name="CreatedBy" Type="Int64" />
+  </EntityType>
+  <EntityType Name="tblM_Kabupaten">
+    <Key>
+      <PropertyRef Name="KabupatenID" />
+    </Key>
+    <Property Name="KabupatenID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProvinsiID" Type="Int64" Nullable="false" />
+    <Property Name="Nama" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="isActive" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblM_Kecamatan">
+    <Key>
+      <PropertyRef Name="KecamatanID" />
+    </Key>
+    <Property Name="KecamatanID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KabupatenID" Type="Int64" />
+    <Property Name="Nama" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="isActive" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblM_Provinsi">
+    <Key>
+      <PropertyRef Name="ProvinsiID" />
+    </Key>
+    <Property Name="ProvinsiID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nama" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="isActive" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblT_Address">
+    <Key>
+      <PropertyRef Name="AddressID" />
+    </Key>
+    <Property Name="AddressID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="AddressHeader" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AddressName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Addressee" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProvinsiID" Type="Int64" Nullable="false" />
+    <Property Name="KabupatenID" Type="Int64" Nullable="false" />
+    <Property Name="ZIPCode" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="isActive" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblT_Log_Admin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdminID" Type="Int64" />
+    <Property Name="Action" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblT_User_Token">
+    <Key>
+      <PropertyRef Name="TokenID" />
+    </Key>
+    <Property Name="TokenID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="Token" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DateExpired" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="DB_MasterEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblM_Admin" EntityType="Self.tblM_Admin" />
+    <EntitySet Name="tblM_Balance" EntityType="Self.tblM_Balance" />
+    <EntitySet Name="tblM_Banner" EntityType="Self.tblM_Banner" />
+    <EntitySet Name="tblM_Kabupaten" EntityType="Self.tblM_Kabupaten" />
+    <EntitySet Name="tblM_Kecamatan" EntityType="Self.tblM_Kecamatan" />
+    <EntitySet Name="tblM_Provinsi" EntityType="Self.tblM_Provinsi" />
+    <EntitySet Name="tblT_Address" EntityType="Self.tblT_Address" />
+    <EntitySet Name="tblT_Log_Admin" EntityType="Self.tblT_Log_Admin" />
+    <EntitySet Name="tblT_User_Token" EntityType="Self.tblT_User_Token" />
+    <EntitySet Name="tblM_User_DeviceID" EntityType="DB_MasterModel.tblM_User_DeviceID" />
+    <EntitySet Name="tblM_Merchant_DeviceID" EntityType="DB_MasterModel.tblM_Merchant_DeviceID" />
+    <EntitySet Name="tblT_Merchant_Delivery_Location" EntityType="DB_MasterModel.tblT_Merchant_Delivery_Location" />
+    <EntitySet Name="tblM_User" EntityType="DB_MasterModel.tblM_User" />
+  </EntityContainer>
+  <EntityType Name="tblM_User_DeviceID">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="DeviceID" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblM_Merchant_DeviceID">
+    <Key>
+      <PropertyRef Name="MerchantID" />
+    </Key>
+    <Property Name="MerchantID" Type="Int64" Nullable="false" />
+    <Property Name="DeviceID" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblT_Merchant_Delivery_Location">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="ProvinsiID" Type="Int64" Nullable="false" />
+    <Property Name="KabupatenID" Type="Int64" Nullable="false" />
+    <Property Name="isActive" Type="Int32" Nullable="false" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblM_User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DoB" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateJoin" Type="DateTime" Precision="3" />
+    <Property Name="isActive" Type="Int32" />
+    <Property Name="DateActivated" Type="DateTime" Precision="3" />
+    <Property Name="isVerified" Type="Int32" />
+    <Property Name="DateVerified" Type="DateTime" Precision="3" />
+    <Property Name="isBanned" Type="Int32" />
+    <Property Name="SMSCount" Type="Int32" />
+    <Property Name="FBID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ThumbnailURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="isMerchant" Type="Int32" />
+    <Property Name="Balance" Type="Double" />
+  </EntityType>
+</Schema>

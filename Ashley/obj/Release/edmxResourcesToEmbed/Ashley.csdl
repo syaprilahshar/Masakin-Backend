@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Ashley" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="AshleyEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblM_Balance" EntityType="Ashley.tblM_Balance" />
+    <EntitySet Name="tblM_Call_Rate" EntityType="Ashley.tblM_Call_Rate" />
+    <EntitySet Name="tblM_User_Agent" EntityType="Ashley.tblM_User_Agent" />
+    <EntitySet Name="tblM_User_DeviceID" EntityType="Ashley.tblM_User_DeviceID" />
+    <EntitySet Name="tblT_Call_History" EntityType="Ashley.tblT_Call_History" />
+    <EntitySet Name="tblT_User_Verification" EntityType="Ashley.tblT_User_Verification" />
+    <EntitySet Name="tblT_Payment" EntityType="Ashley.tblT_Payment" />
+    <EntitySet Name="tblM_User_ForgotPassword" EntityType="Ashley.tblM_User_ForgotPassword" />
+    <EntitySet Name="tblM_Token" EntityType="Ashley.tblM_Token" />
+    <EntitySet Name="tblM_User" EntityType="Ashley.tblM_User" />
+  </EntityContainer>
+  <EntityType Name="tblM_Balance">
+    <Key>
+      <PropertyRef Name="BalanceID" />
+    </Key>
+    <Property Name="BalanceID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" />
+    <Property Name="Balance" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+    <Property Name="DateExpired" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblM_Call_Rate">
+    <Key>
+      <PropertyRef Name="RateID" />
+    </Key>
+    <Property Name="RateID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Country" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CounrtyCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RNRUserRateDialCodeGroupID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Rate" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblM_User_Agent">
+    <Key>
+      <PropertyRef Name="AgentID" />
+    </Key>
+    <Property Name="AgentID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" />
+    <Property Name="Language" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblM_User_DeviceID">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeviceID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblT_Call_History">
+    <Key>
+      <PropertyRef Name="CallHistoryID" />
+    </Key>
+    <Property Name="CallHistoryID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" />
+    <Property Name="CallID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StartTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EndTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProgressTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EstablishTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Duration" Type="Int32" />
+    <Property Name="RatePerMinute" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cost" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TerminationCause" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Error" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblT_User_Verification">
+    <Key>
+      <PropertyRef Name="VerificationID" />
+    </Key>
+    <Property Name="VerificationID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" />
+    <Property Name="VerificationCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DateRegistered" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblT_Payment">
+    <Key>
+      <PropertyRef Name="ReferenceNumber" />
+    </Key>
+    <Property Name="ReferenceNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserID" Type="Int64" />
+    <Property Name="PaymentType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentGatewayReturnDatetime" Type="DateTime" Precision="3" />
+    <Property Name="CurrencyCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Amount" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="PaymentDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentResult" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tblM_User_ForgotPassword">
+    <Key>
+      <PropertyRef Name="ForgotPasswordID" />
+    </Key>
+    <Property Name="ForgotPasswordID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int64" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Count" Type="Int32" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblM_Token">
+    <Key>
+      <PropertyRef Name="TokenID" />
+    </Key>
+    <Property Name="TokenID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TokenName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AccessToken" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExpiredDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblM_User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Fullname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Salutation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CountryCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DoB" Type="DateTime" Precision="0" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DateRegistered" Type="DateTime" Precision="3" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+    <Property Name="isNewsletter" Type="Int32" />
+    <Property Name="isVerified" Type="Int32" />
+    <Property Name="isActived" Type="Int32" />
+    <Property Name="isAgent" Type="Int32" />
+    <Property Name="isAdmin" Type="Int32" />
+    <Property Name="ImageURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Thumbnail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

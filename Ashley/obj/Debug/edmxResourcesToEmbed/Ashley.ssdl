@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Ashley.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblM_Balance">
+    <Key>
+      <PropertyRef Name="BalanceID" />
+    </Key>
+    <Property Name="BalanceID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="bigint" />
+    <Property Name="Balance" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="DateModified" Type="datetime" />
+    <Property Name="DateExpired" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblM_Call_Rate">
+    <Key>
+      <PropertyRef Name="RateID" />
+    </Key>
+    <Property Name="RateID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Country" Type="nvarchar(max)" />
+    <Property Name="CounrtyCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="RNRUserRateDialCodeGroupID" Type="nvarchar" MaxLength="50" />
+    <Property Name="Rate" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="DateModified" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblM_Token">
+    <Key>
+      <PropertyRef Name="TokenID" />
+    </Key>
+    <Property Name="TokenID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TokenName" Type="nvarchar(max)" />
+    <Property Name="AccessToken" Type="nvarchar(max)" />
+    <Property Name="Username" Type="nvarchar(max)" />
+    <Property Name="ExpiredDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblM_User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="Fullname" Type="nvarchar" MaxLength="50" />
+    <Property Name="Salutation" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="CountryCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+    <Property Name="DoB" Type="date" />
+    <Property Name="Country" Type="nvarchar" MaxLength="50" />
+    <Property Name="DateRegistered" Type="datetime" />
+    <Property Name="DateModified" Type="datetime" />
+    <Property Name="isNewsletter" Type="int" />
+    <Property Name="isVerified" Type="int" />
+    <Property Name="isActived" Type="int" />
+    <Property Name="isAgent" Type="int" />
+    <Property Name="isAdmin" Type="int" />
+    <Property Name="ImageURL" Type="nvarchar(max)" />
+    <Property Name="Thumbnail" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tblM_User_Agent">
+    <Key>
+      <PropertyRef Name="AgentID" />
+    </Key>
+    <Property Name="AgentID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="bigint" />
+    <Property Name="Language" Type="nvarchar(max)" />
+    <Property Name="DateModified" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblM_User_DeviceID">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeviceID" Type="nvarchar(max)" />
+    <Property Name="DateModified" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblM_User_ForgotPassword">
+    <Key>
+      <PropertyRef Name="ForgotPasswordID" />
+    </Key>
+    <Property Name="ForgotPasswordID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="bigint" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" />
+    <Property Name="Count" Type="int" />
+    <Property Name="DateModified" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblT_Call_History">
+    <Key>
+      <PropertyRef Name="CallHistoryID" />
+    </Key>
+    <Property Name="CallHistoryID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="bigint" />
+    <Property Name="CallID" Type="nvarchar(max)" />
+    <Property Name="StartTime" Type="nvarchar(max)" />
+    <Property Name="EndTime" Type="nvarchar(max)" />
+    <Property Name="ProgressTime" Type="nvarchar(max)" />
+    <Property Name="EstablishTime" Type="nvarchar(max)" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Duration" Type="int" />
+    <Property Name="RatePerMinute" Type="nvarchar" MaxLength="50" />
+    <Property Name="Cost" Type="nvarchar" MaxLength="50" />
+    <Property Name="TerminationCause" Type="nvarchar(max)" />
+    <Property Name="Error" Type="nvarchar(max)" />
+    <Property Name="DateCreated" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblT_Payment">
+    <Key>
+      <PropertyRef Name="ReferenceNumber" />
+    </Key>
+    <Property Name="ReferenceNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserID" Type="bigint" />
+    <Property Name="PaymentType" Type="nvarchar" MaxLength="50" />
+    <Property Name="PaymentStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="PaymentMethod" Type="nvarchar" MaxLength="50" />
+    <Property Name="PaymentGatewayReturnDatetime" Type="datetime" />
+    <Property Name="CurrencyCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="Amount" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="PaymentDetails" Type="nvarchar(max)" />
+    <Property Name="PaymentResult" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tblT_User_Verification">
+    <Key>
+      <PropertyRef Name="VerificationID" />
+    </Key>
+    <Property Name="VerificationID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="bigint" />
+    <Property Name="VerificationCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="DateRegistered" Type="datetime" />
+  </EntityType>
+  <EntityContainer Name="AshleyStoreContainer">
+    <EntitySet Name="tblM_Balance" EntityType="Self.tblM_Balance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblM_Call_Rate" EntityType="Self.tblM_Call_Rate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblM_Token" EntityType="Self.tblM_Token" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblM_User" EntityType="Self.tblM_User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblM_User_Agent" EntityType="Self.tblM_User_Agent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblM_User_DeviceID" EntityType="Self.tblM_User_DeviceID" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblM_User_ForgotPassword" EntityType="Self.tblM_User_ForgotPassword" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblT_Call_History" EntityType="Self.tblT_Call_History" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblT_Payment" EntityType="Self.tblT_Payment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblT_User_Verification" EntityType="Self.tblT_User_Verification" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

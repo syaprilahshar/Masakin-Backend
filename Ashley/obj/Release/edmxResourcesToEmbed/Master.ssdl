@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_MasterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblM_Admin">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Name="AdminID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fullname" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Role" Type="nvarchar" MaxLength="50" />
+    <Property Name="isActive" Type="int" />
+    <Property Name="DateJoin" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblM_Balance">
+    <Key>
+      <PropertyRef Name="BalanceID" />
+    </Key>
+    <Property Name="BalanceID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MerchantID" Type="bigint" Nullable="false" />
+    <Property Name="Balance" Type="float" Nullable="false" />
+    <Property Name="LastTopup" Type="datetime" Nullable="false" />
+    <Property Name="LastUsed" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblM_Banner">
+    <Key>
+      <PropertyRef Name="BannerID" />
+    </Key>
+    <Property Name="BannerID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Header" Type="nvarchar(max)" />
+    <Property Name="Image" Type="nvarchar(max)" />
+    <Property Name="ContentType" Type="nvarchar(max)" />
+    <Property Name="ImageURL" Type="nvarchar(max)" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="isActive" Type="int" />
+    <Property Name="CreatedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="tblM_Kabupaten">
+    <Key>
+      <PropertyRef Name="KabupatenID" />
+    </Key>
+    <Property Name="KabupatenID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProvinsiID" Type="bigint" Nullable="false" />
+    <Property Name="Nama" Type="nvarchar" MaxLength="50" />
+    <Property Name="isActive" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblM_Kecamatan">
+    <Key>
+      <PropertyRef Name="KecamatanID" />
+    </Key>
+    <Property Name="KecamatanID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KabupatenID" Type="bigint" />
+    <Property Name="Nama" Type="nvarchar" MaxLength="50" />
+    <Property Name="isActive" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblM_Merchant_DeviceID">
+    <Key>
+      <PropertyRef Name="MerchantID" />
+    </Key>
+    <Property Name="MerchantID" Type="bigint" Nullable="false" />
+    <Property Name="DeviceID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DateModified" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblM_Provinsi">
+    <Key>
+      <PropertyRef Name="ProvinsiID" />
+    </Key>
+    <Property Name="ProvinsiID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nama" Type="nvarchar" MaxLength="50" />
+    <Property Name="isActive" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblM_User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Password" Type="nvarchar(max)" />
+    <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Location" Type="nvarchar" MaxLength="50" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+    <Property Name="DoB" Type="nvarchar(max)" />
+    <Property Name="DateJoin" Type="datetime" />
+    <Property Name="isActive" Type="int" />
+    <Property Name="DateActivated" Type="datetime" />
+    <Property Name="isVerified" Type="int" />
+    <Property Name="DateVerified" Type="datetime" />
+    <Property Name="isBanned" Type="int" />
+    <Property Name="SMSCount" Type="int" />
+    <Property Name="FBID" Type="nvarchar(max)" />
+    <Property Name="ImageURL" Type="nvarchar(max)" />
+    <Property Name="ThumbnailURL" Type="nvarchar(max)" />
+    <Property Name="isMerchant" Type="int" />
+    <Property Name="Balance" Type="float" />
+  </EntityType>
+  <EntityType Name="tblM_User_DeviceID">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="bigint" Nullable="false" />
+    <Property Name="DeviceID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DateModified" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblT_Address">
+    <Key>
+      <PropertyRef Name="AddressID" />
+    </Key>
+    <Property Name="AddressID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="bigint" Nullable="false" />
+    <Property Name="AddressHeader" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AddressName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Addressee" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProvinsiID" Type="bigint" Nullable="false" />
+    <Property Name="KabupatenID" Type="bigint" Nullable="false" />
+    <Property Name="ZIPCode" Type="int" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="isActive" Type="int" />
+  </EntityType>
+  <EntityType Name="tblT_Log_Admin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AdminID" Type="bigint" />
+    <Property Name="Action" Type="nvarchar(max)" />
+    <Property Name="Message" Type="nvarchar(max)" />
+    <Property Name="DateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblT_Merchant_Delivery_Location">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="bigint" Nullable="false" />
+    <Property Name="ProvinsiID" Type="bigint" Nullable="false" />
+    <Property Name="KabupatenID" Type="bigint" Nullable="false" />
+    <Property Name="isActive" Type="int" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblT_User_Token">
+    <Key>
+      <PropertyRef Name="TokenID" />
+    </Key>
+    <Property Name="TokenID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="bigint" Nullable="false" />
+    <Property Name="Token" Type="nvarchar" MaxLength="6" Nullable="false" />
+    <Property Name="DateExpired" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="DB_MasterModelStoreContainer">
+    <EntitySet Name="tblM_Admin" EntityType="Self.tblM_Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblM_Balance" EntityType="Self.tblM_Balance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblM_Banner" EntityType="Self.tblM_Banner" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblM_Kabupaten" EntityType="Self.tblM_Kabupaten" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblM_Kecamatan" EntityType="Self.tblM_Kecamatan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblM_Merchant_DeviceID" EntityType="Self.tblM_Merchant_DeviceID" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblM_Provinsi" EntityType="Self.tblM_Provinsi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblM_User" EntityType="Self.tblM_User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblM_User_DeviceID" EntityType="Self.tblM_User_DeviceID" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblT_Address" EntityType="Self.tblT_Address" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblT_Log_Admin" EntityType="Self.tblT_Log_Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblT_Merchant_Delivery_Location" EntityType="Self.tblT_Merchant_Delivery_Location" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblT_User_Token" EntityType="Self.tblT_User_Token" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
