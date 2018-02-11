@@ -1,5 +1,13 @@
 # Masakin-Backend
 
+Untuk penggunaan API, kami menggunakan 3 API dari XSight, yaitu:
+
+- SMSOTP, untuk memverifikasi pengguna yang mendaftar di platform Masakin
+
+- SMSNotification, untuk memberitahukan pengguna ketika pesanannya diproses, dikirimkan, dan pesanan/kateringnya sudah selesai, dan digunakan juga untuk dapur mitra kami ketika ada pengguna yang memesan katering mereka.
+
+- Finpay, digunakan untuk pengguna meakukan pembayaran atas pesanan katering mereka.
+
 untuk penggunaan API XSight, ada di file Ashley/Common.cs
 
 Untuk download APKnya di link ini: https://www.dropbox.com/s/4ccotibn4vyohw1/Masakin%20%28beta%29.apk?dl=0
