@@ -6,10 +6,17 @@ Untuk download APKnya di link ini: https://www.dropbox.com/s/4ccotibn4vyohw1/Mas
 
 Untuk keperluan testing, berikut user dan merchant id:
 - User
+
   Phone : 089508547770
+  
   Password : 12345
+  
   atau bisa bikin user baru dengan mendaftar di aplikasi Masakin
   
+  
 - Merchant
+
   Phone : 085656474530
+  
   Password : 12345
+  
